@@ -5,61 +5,70 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="rootPane" prefHeight="400" prefWidth="500"
-	stylesheets="windowgui/Style.css" xmlns="http://javafx.com/javafx/8"
-	xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="windowgui.controller.ThrowDataController">
+<AnchorPane fx:id="rootPane" prefHeight="400" prefWidth="500" stylesheets="windowgui/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="windowgui.controller.ThrowDataController">
 	<children>
-		<GridPane fx:id="menuItemLabels" layoutX="50" layoutY="100"
-			prefHeight="500" prefWidth="600">
-		       <ImageView pickOnBounds="true" preserveRatio="true">
-				<image>
-					<Image url="@../PastData.png" />
-				</image>
-			</ImageView>
+		<ImageView pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image url="@../PastData.png" />
+			</image>
+		</ImageView>
+		<GridPane fx:id="menuItemLabels" layoutX="50" layoutY="100" prefHeight="500" prefWidth="600">
 			<children>
 				<Label text="Meet:" />
-				<Label fx:id="meetDetails" text="meet details"
-					GridPane.columnIndex="1" GridPane.rowIndex="0" />
+				<Label fx:id="meetDetails" text="meet details" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
 				<Label text="Event:" GridPane.rowIndex="1" />
-				<ComboBox fx:id="eventBox" promptText="None"
-					GridPane.columnIndex="1" GridPane.rowIndex="1" />
+				<ComboBox fx:id="eventBox" promptText="None" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
 				<Label text="Weather:" GridPane.rowIndex="2" />
-				<ComboBox fx:id="weatherBox" promptText="Sunny"
-					GridPane.columnIndex="1" GridPane.rowIndex="2" />
+				<ComboBox fx:id="weatherBox" promptText="Sunny" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
 				<Label text="Wind Level:" GridPane.rowIndex="3" />
-				<ComboBox fx:id="windBox" promptText="None"
-					GridPane.columnIndex="1" GridPane.rowIndex="3" />
+				<ComboBox fx:id="windBox" promptText="None" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-				<Label text="Round #:" GridPane.rowIndex="4" />
-				<ComboBox fx:id="roundBox" GridPane.columnIndex="1"
-					GridPane.rowIndex="4" />
+				<Label text="Round #:" GridPane.rowIndex="5" />
+				<ComboBox fx:id="roundBox" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-				<Label text="Throw #:" GridPane.rowIndex="5" />
-				<ComboBox fx:id="throwBox" GridPane.columnIndex="1"
-					GridPane.rowIndex="5" />
+				<Label text="Throw #:" GridPane.rowIndex="7" />
+				<ComboBox fx:id="throwBox" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
-				<Label text="Name:" GridPane.rowIndex="6" />
-				<ComboBox fx:id="autoBox" promptText="Athlete name"
-					GridPane.columnIndex="1" GridPane.rowIndex="6" />
+				<Label text="Name:" GridPane.rowIndex="12" />
+				<ComboBox fx:id="autoBox" promptText="Athlete name" GridPane.columnIndex="1" GridPane.rowIndex="12" />
 
-				<Label text="Distance (Feet-Inches):" GridPane.rowIndex="7" />
-				<TextField fx:id="distanceField" promptText="0"
-					GridPane.columnIndex="1" GridPane.rowIndex="7" />
+				<Label text="Distance (Feet-Inches):" GridPane.rowIndex="13" />
+				<TextField fx:id="distanceField" promptText="0" GridPane.columnIndex="1" GridPane.rowIndex="13" />
 
-				<Button fx:id="enterButton" onAction="#enter" text="Enter"
-					GridPane.columnIndex="1" GridPane.rowIndex="9" />
+				<Button fx:id="enterButton" onAction="#enter" text="Enter" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            <Label text="Temperature: " GridPane.rowIndex="4" />
+            <TextField fx:id="tempField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
 			</children>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
 
 		</GridPane>
-		<fx:include onMouseClicked="#goHome"
-			source="HomeButton.fxml" />
-		<ImageView fitHeight="46.0" fitWidth="61.0" layoutX="110.0" onMouseClicked="#goBack"
-			layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+		<fx:include onMouseClicked="#goHome" source="HomeButton.fxml" />
+		<ImageView fitHeight="46.0" fitWidth="61.0" layoutX="110.0" layoutY="47.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
 			<image>
 				<Image url="@../back.png" />
 			</image>

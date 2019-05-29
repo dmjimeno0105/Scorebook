@@ -1,5 +1,7 @@
 package windowgui.controller;
 
+import java.util.ArrayList;
+
 import capstone.scorebook.data.concrete.Meet;
 import capstone.scorebook.data.concrete.ScorebookDatabase;
 import javafx.fxml.FXML;
@@ -16,6 +18,8 @@ public class SelectMeetController extends BaseController {
 	@FXML
 	private Button selectMeetButton;
 
+
+
 	@FXML
 	private void initialize() {
 
@@ -29,7 +33,7 @@ public class SelectMeetController extends BaseController {
 		System.out.println(fxmlToOpen);
 
 		this.<MeetController>openFXML(fxmlToOpen, controller -> controller.setMeet(selectMeetBox.getValue()));
-
+		
 	}
 
 	public void setFXMLtoOpen(String fxml) { this.fxmlToOpen = fxml; }

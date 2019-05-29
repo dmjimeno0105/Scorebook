@@ -21,28 +21,21 @@ public class ViewDataController extends MeetController {
 	public void goBack() {
 		this.<SelectMeetController>openFXML("SelectMeet.fxml", controller -> controller.setFXMLtoOpen("ViewData.fxml"));
 	}
-	
+
 	void onSetMeet() {
 
 		ScorebookDatabase db = ScorebookDatabase.getDB();
 
-		addColumn("Event",
-			  score -> new SimpleStringProperty((score instanceof ScoreDiscus) ? "Discus" : "Shotput"));
+		addColumn("Event", score -> new SimpleStringProperty((score instanceof ScoreDiscus) ? "Discus" : "Shotput"));
 
-		addColumn("Athlete",
-			  score -> new SimpleStringProperty(db.getAthlete(score.getAthleteID()).getFullName()));
+		addColumn("Athlete", score -> new SimpleStringProperty(db.getAthlete(score.getAthleteID()).getFullName()));
 
-		addColumn("Order",
-			  score -> new SimpleIntegerProperty(score.getOrder()));
+		addColumn("Order", score -> new SimpleIntegerProperty(score.getOrder()));
 
-		addColumn("Feet",
-			  score -> new SimpleIntegerProperty(score.getDistance() / 12));
+		addColumn("Feet-Inches", score -> new SimpleStringProperty(
+				String.format("%d-%d", score.getDistance() / 12, score.getDistance() % 12)));
 
-		addColumn("Inches",
-			  score -> new SimpleIntegerProperty(score.getDistance() % 12));
-
-		addColumn("Weather",
-			  score -> new SimpleStringProperty(score.getWeatherID()));
+		addColumn("Weather", score -> new SimpleStringProperty(score.getWeatherID()));
 
 		scoreDataTable.setItems(FXCollections.observableList(db.getThrowScores(meet.getID())));
 

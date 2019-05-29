@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -12,7 +17,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="600.0" stylesheets="windowgui/Style.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="windowgui.controller.RegisterMeetController">
+<AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="600.0" stylesheets="windowgui/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="windowgui.controller.RegisterMeetController">
 	<children>
       <ImageView pickOnBounds="true" preserveRatio="true">
          <image>
@@ -25,7 +30,7 @@
 				<Font size="20.0" />
 			</font>
 		</Label>
-		<GridPane layoutX="50.0" layoutY="100.0" prefHeight="500" prefWidth="533.0">
+		<GridPane layoutX="53.0" layoutY="107.0" prefHeight="500" prefWidth="533.0">
 			<children>
 				<Label text="Meet Type" />
 				<ComboBox fx:id="roundOptions" GridPane.columnIndex="1" />
@@ -36,16 +41,19 @@
 				<Label text="Is the meet indoors?" GridPane.rowIndex="2" />
 				<ComboBox fx:id="indoorsOptions" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-				<Label text="Temperature: " GridPane.rowIndex="3" />
-				<TextField fx:id="tempField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-
-				<Button onAction="#enter" text="Enter" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+				<Button onAction="#enter" text="Enter" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label prefHeight="17.0" prefWidth="108.0" text="Date(yyyy-mm-dd)" GridPane.rowIndex="6" />
+            <TextField fx:id="dateField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 			</children>
          <columnConstraints>
             <ColumnConstraints />
             <ColumnConstraints />
+            <ColumnConstraints />
          </columnConstraints>
          <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
             <RowConstraints />
             <RowConstraints />
             <RowConstraints />

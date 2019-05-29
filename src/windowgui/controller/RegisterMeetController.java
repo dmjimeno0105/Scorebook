@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -24,9 +25,10 @@ public class RegisterMeetController extends BaseController {
 	@FXML
 	private ComboBox<StrIntOption> roundOptions, indoorsOptions;
 	@FXML
-	private TextField addressField, tempField;
+	private TextField addressField, dateField;
 	@FXML
 	private Label doneLabel;
+
 
 	public void initialize() {
 		roundOptions.getItems().setAll(new StrIntOption("1-Round Meet", 1),
@@ -40,14 +42,17 @@ public class RegisterMeetController extends BaseController {
 	}
 
 	// enter meet into db
+	//NEED TO REMOVE TEMP FROM MEET, AND ADD TO THE TABLE OF DATA WHEN INPUTTING AN ATHLETE THROW
 	public void enter() {
+		
+		int temp=0;
 
-		ScorebookDatabase.getDB().insert(new Meet(getAddress(), getDate(), getRounds(), getSeason(), getIndoors(), getTemp()));
+		ScorebookDatabase.getDB().insert(new Meet(getAddress(), getDate(), getRounds(), getSeason(), getIndoors(), temp));
 		roundOptions.getSelectionModel().clearSelection();
 		indoorsOptions.getSelectionModel().clearSelection();
 
 		addressField.clear();
-		tempField.clear();
+		dateField.setText(todayDate());
 		show();
 	}
 
@@ -57,7 +62,6 @@ public class RegisterMeetController extends BaseController {
 
 	public void show() {
 		doneLabel.setVisible(true);
-		tempField.getParent().addEventHandler(MouseEvent.MOUSE_CLICKED, e -> reset());
 	}
 
 	public String getAddress() { return addressField.getText(); }
@@ -66,14 +70,14 @@ public class RegisterMeetController extends BaseController {
 
 	public int getIndoors() { return indoorsOptions.getValue().num; }
 
-	public int getTemp() {
-		return Integer.parseInt(tempField.getText());
-	}
-
 	private static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
-	public String getDate() {
+	public String todayDate() {
 		return DATE_FORMAT.format(new Date());
+	}
+	
+	public String getDate() {
+		return dateField.getText();
 	}
 
 	public String getSeason() {

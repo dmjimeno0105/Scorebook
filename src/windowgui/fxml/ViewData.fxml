@@ -11,13 +11,13 @@
 	prefHeight="500" style="-fx-background-color: green;"
 	xmlns:fx="http://javafx.com/fxml">
 	<children>
-      <ImageView pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../PastData.png" />
-         </image>
+		<ImageView pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image url="@../PastData.png" />
+			</image>
+		</ImageView>
 		<TableView fx:id="scoreDataTable" prefWidth="500"
-			prefHeight="400" layoutX="50" layoutY="100">
-		</TableView>
+			prefHeight="400" layoutX="50" layoutY="100" />
 		<fx:include source="HomeButton.fxml"
 			onMouseClicked="#goHome" />
 		<Label layoutX="100" layoutY="50" text="DATA">
